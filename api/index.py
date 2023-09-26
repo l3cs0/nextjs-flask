@@ -11,3 +11,7 @@ def hello_world():
 @app.route("/api/hello", methods=["GET"])
 def hello_world2():
     return "Hello, Hello!"
+
+
+if __name__ == "__main__":
+    app.run(port=5328)
