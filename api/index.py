@@ -23,5 +23,5 @@ if __name__ == "__main__":
     app.run(port=5328)
 
 
-def createString():
+def create_string():
     return "createdString"
