@@ -13,7 +13,7 @@ def hello_world2():
     return render_template("index.html")
 
 
-@app.route("/api/todo", methods=["GET"])
+@app.route("/api/create", methods=["GET"])
 def todo():
     mystring = createString()
     return mystring
@@ -25,12 +25,3 @@ if __name__ == "__main__":
 
 def createString():
     return "createdString"
-
-
-class Todo:
-    def __init__(self, name, description):
-        self.name = name
-        self.description = description
-
-    def __repr__(self):
-        return f"{self.name} : {self.description}"
