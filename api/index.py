@@ -1,7 +1,5 @@
 from flask import Flask, render_template
 
-from api.capacityService.solver import solve
-
 app = Flask(__name__)
 
 
@@ -18,12 +16,6 @@ def hello_world2():
 @app.route("/api/create", methods=["GET"])
 def todo():
     mystring = create_string()
-    return mystring
-
-
-@app.route("/api/solve", methods=["GET"])
-def todo():
-    mystring = solve()
     return mystring
 
 
