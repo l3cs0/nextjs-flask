@@ -17,7 +17,7 @@ def hello_world2():
 
 @app.route("/api/create", methods=["GET"])
 def todo():
-    mystring = createString()
+    mystring = create_string()
     return mystring
 
 
