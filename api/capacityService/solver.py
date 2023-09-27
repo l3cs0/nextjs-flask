@@ -31,4 +31,12 @@ def solve():
     print("Objective value =", objective.Value())
     print("x =", x.solution_value())
     print("y =", y.solution_value())
-    return "solved"
+    res: str = (
+        "x = "
+        + str(x.solution_value())
+        + " y = "
+        + str(y.solution_value())
+        + " objective = "
+        + str(objective.Value())
+    )
+    return res
