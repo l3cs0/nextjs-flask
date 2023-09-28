@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from api.capacityService.constraintSolver import constraintsolve
 from api.capacityService.linearSolver import linearsolve
 
@@ -19,6 +19,18 @@ def hello_world2():
 def todo():
     mystring = create_string()
     return mystring
+
+
+@app.route("/api/todo", methods=["GET"])
+def create_todo_item():
+    data = request.get_json()
+    title = data.get("title")
+    if not title:
+        return {"error": "Title is required"}, 400
+
+    global todo_id_counter
+    todo = {"id": todo_id_counter, "title": title, "completed": False}
+    return todo, 201
 
 
 @app.route("/api/solve", methods=["GET"])
