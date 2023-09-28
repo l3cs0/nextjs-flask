@@ -1,5 +1,6 @@
 from flask import Flask, render_template
-from api.capacityService.solver import solve
+from api.capacityService.constraintSolver import constraintsolve
+from api.capacityService.linearSolver import linearsolve
 
 app = Flask(__name__)
 
@@ -22,7 +23,7 @@ def todo():
 
 @app.route("/api/solve", methods=["GET"])
 def endpointsolve():
-    mystring = solve()
+    mystring = constraintsolve()
     return mystring
 
 
