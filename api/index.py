@@ -35,8 +35,11 @@ def create_todo_item():
 
 @app.route("/api/solve", methods=["GET"])
 def endpointsolve():
-    mystring = constraintsolve()
-    return mystring
+    data = request.get_json()
+    A = data.get("A")
+    # mystring = constraintsolve()
+
+    return A
 
 
 if __name__ == "__main__":
