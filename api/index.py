@@ -1,12 +1,14 @@
 from flask import Flask, render_template, request
 from api.capacityService.constraintSolver import constraintsolve
+from api.capacityService.binpacking import bin_packing_problem_sat
 from api.capacityService.linearSolver import linearsolve
+from api.capacityService.nqueens import nqueens
 
 app = Flask(__name__)
 
 
 @app.route("/api/python")
-def hello_world():
+def hello():
     return "<p>Hello, Python!</p>"
 
 
@@ -35,11 +37,20 @@ def create_todo_item():
 
 @app.route("/api/solve", methods=["GET"])
 def endpointsolve():
-    data = request.get_json()
-    A = data.get("A")
-    # mystring = constraintsolve()
+    res = constraintsolve()
+    return res
 
-    return A
+
+@app.route("/api/solve2", methods=["GET"])
+def endpointsolve2():
+    res = bin_packing_problem_sat()
+    return res
+
+
+@app.route("/api/solve3", methods=["GET"])
+def endpointsolve3():
+    res = nqueens(12)
+    return res
 
 
 if __name__ == "__main__":

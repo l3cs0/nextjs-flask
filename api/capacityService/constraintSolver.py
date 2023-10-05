@@ -31,11 +31,14 @@ def constraintsolve():
     solver.parameters.log_search_progress = True
     status = solver.Solve(model)
 
+    logstring = ""
     if status == cp_model.OPTIMAL:
         for i in range(len(A)):
             if solver.Value(in_strip_vars[i]) == 1:
                 print(f"rectangle {i}: {A[i]} x {B[i]}")
+                logstring += f"rectangle {i}: {A[i]} x {B[i]}\n"
             elif solver.Value(rotated_in_strip_vars[i]) == 1:
                 print(f"rectangle (rotated) {i}: {B[i]} x {A[i]}")
+                logstring += f"rectangle (rotated) {i}: {B[i]} x {A[i]}\n"
 
-    return f"rectangle {i}: {A[i]} x {B[i]}"
+    return logstring
