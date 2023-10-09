@@ -49,7 +49,7 @@ def endpointsolve2():
 
 @app.route("/api/solve3", methods=["GET"])
 def endpointsolve3():
-    res = nqueens(12)
+    res = nqueens(10)
     return res
 
 

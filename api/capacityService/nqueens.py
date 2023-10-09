@@ -91,6 +91,7 @@ def nqueens(board_size):
 
     log = (
         "\nStatistics"
+        + f" Board size     : {board_size}x{board_size}"
         + f"  conflicts      : {solver.NumConflicts()}"
         + f"  branches       : {solver.NumBranches()}"
         + f"  wall time      : {solver.WallTime()} s"
@@ -109,7 +110,7 @@ def nqueens(board_size):
 
 if __name__ == "__main__":
     # By default, solve the 8x8 problem.
-    size = 2
+    size = 8
     if len(sys.argv) > 1:
         size = int(sys.argv[1])
     main(size)
